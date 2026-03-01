@@ -19,6 +19,20 @@
             --gray-300: #cbd5e1;
             --gray-100: #f1f5f9;
             --white: #ffffff;
+            --bg: #ffffff;
+            --text: #0f172a;
+        }
+        
+        [data-theme="dark"] {
+            --dark: #f1f5f9;
+            --gray-900: #e2e8f0;
+            --gray-700: #94a3b8;
+            --gray-500: #64748b;
+            --gray-300: #334155;
+            --gray-100: #1e293b;
+            --white: #0f172a;
+            --bg: #0f172a;
+            --text: #f1f5f9;
         }
         
         * {
@@ -30,8 +44,9 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background: var(--white);
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s, color 0.3s;
         }
         
         .container {
@@ -530,13 +545,37 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="#" class="logo">
                 <div class="logo-icon">🪢</div>
                 ClawKnot
             </a>
+            <button id="theme-toggle" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">🌙 Dark Mode</button>
         </div>
     </header>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            }
+        });
+    </script>
 
     <!-- Hero -->
     <section class="hero">

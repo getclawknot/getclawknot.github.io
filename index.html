@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClawKnot — Master OpenClaw & Build Your AI Agent Team</title>
+    <meta name="description" content="Ready-to-use OpenClaw templates and optimization guides. Launch your AI agent team in hours, not weeks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--gray-700);
+            margin-bottom: 24px;
+        }
+        
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+        
+        .btn-secondary {
+            background: var(--white);
+            color: var(--gray-900);
+            border: 2px solid var(--gray-300);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Stats */
+        .stats {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-top: 4px;
+        }
+        
+        /* Products */
+        .products {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+        
+        .product-card.featured {
+            border: 2px solid var(--primary);
+            background: linear-gradient(180deg, rgba(99,102,241,0.03) 0%, var(--white) 100%);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .product-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .product-card p {
+            color: var(--gray-700);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .product-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: var(--gray-700);
+        }
+        
+        .product-features li::before {
+            content: "✓";
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .price-note {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+        
+        /* Bundle */
+        .bundle {
+            padding: 80px 0;
+            background: var(--gray-100);
+        }
+        
+        .bundle-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .bundle-content {
+            flex: 1;
+        }
+        
+        .bundle-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .bundle-content p {
+            color: var(--gray-700);
+            margin-bottom: 24px;
+        }
+        
+        .bundle-price {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .bundle-price .current {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .bundle-price .original {
+            font-size: 24px;
+            color: var(--gray-500);
+            text-decoration: line-through;
+        }
+        
+        .bundle-price .save {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--gray-100);
+            padding: 24px 0;
+        }
+        
+        .faq-item h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .faq-item p {
+            color: var(--gray-700);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-100);
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bundle-card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🪢</div>
+                ClawKnot
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                For OpenClaw & AI Agent Builders
+            </div>
+            <h1>Master OpenClaw.<br>Build Your <span>AI Agent Team</span>.</h1>
+            <p>Stop struggling with setup. Get proven templates, playbooks, and optimization guides used by 300K+ OpenClaw users. Launch in hours, not weeks.</p>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-primary">Get Started →</a>
+                <a href="#bundle" class="btn btn-secondary">View Bundle Deal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">300K+</div>
+                    <div class="stat-label">OpenClaw Users</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">14</div>
+                    <div class="stat-label">Agent Templates</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3-Layer</div>
+                    <div class="stat-label">Memory System</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Digital Download</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Setup</h2>
+                <p>Whether you're just starting or optimizing an existing setup, we've got you covered.</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card featured">
+                    <span class="product-badge">Most Popular</span>
+                    <div class="product-icon">🚀</div>
+                    <h3>OpenClaw Launch Kit</h3>
+                    <p>Everything you need to set up your first multi-agent team. Pre-configured templates, personality guides, and routing rules.</p>
+                    
+                    <ul class="product-features">
+                        <li>Multi-Agent Team Blueprint (43 pages)</li>
+                        <li>14 Agent Prompt Cards (PNG)</li>
+                        <li>Agent Personality Templates</li>
+                        <li>Message Routing Setup</li>
+                        <li>Skill Matrix Framework</li>
+                        <li>Model Selection Guide</li>
+                    </ul>
+                    
+                    <div class="product-price">
+                        <span class="price">$69</span>
+                        <span class="price-note">one-time</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="alert('Gumroad link coming soon!')">Get Launch Kit →</a>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-icon">⚡</div>
+                    <h3>OpenClaw Optimizer</h3>
+                    <p>Advanced tuning for existing setups. Fix memory issues, reduce costs, and harden security.</p>
+                    
+                    <ul class="product-features">
+                        <li>3-Layer Memory Upgrade Guide</li>
+                        <li>System Stability Playbook</li>
+                        <li>Security Hardening Checklist</li>
+                        <li>QMD Search Setup</li>
+                        <li>Learning Loop Configuration</li>
+                        <li>Cost Optimization Tips</li>
+                    </ul>
+                    
+                    <div class="product-price">
+                        <span class="price">$39</span>
+                        <span class="price-note">one-time</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="alert('Gumroad link coming soon!')">Get Optimizer →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle -->
+    <section class="bundle" id="bundle">
+        <div class="container">
+            <div class="bundle-card">
+                <div class="bundle-content">
+                    <h2>🎁 Complete Setup Bundle</h2>
+                    <p>Get both products and save. The complete toolkit for building, launching, and optimizing your OpenClaw agent team.</p>
+                    
+                    <div class="bundle-price">
+                        <span class="current">$89</span>
+                        <span class="original">$108</span>
+                        <span class="save">Save $19</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary" onclick="alert('Gumroad bundle link coming soon!')">Get Complete Bundle →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>What is OpenClaw?</h4>
+                    <p>OpenClaw (formerly Clawdbot/Moltbot) is a local-first AI agent platform that lets you run your own personal AI assistant on any OS. It has 300K+ users worldwide.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Do I need OpenClaw already installed?</h4>
+                    <p>The Launch Kit assumes you have OpenClaw installed. The Optimizer works with any existing setup. Both include step-by-step instructions.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What's included in the download?</h4>
+                    <p>PDF guides, HTML documentation, and PNG reference cards. Everything is digital and delivered instantly after purchase.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Is this a subscription?</h4>
+                    <p>No. Both products are one-time purchases. You get lifetime access to the materials and any future updates.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What if I'm not satisfied?</h4>
+                    <p>We offer a 30-day money-back guarantee. If these guides don't help you set up a better OpenClaw system, just email us for a full refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 ClawKnot. Not affiliated with OpenClaw. Independent guides by AI agent builders.</p>
+        </div>
+    </footer>
+</body>
+</html>

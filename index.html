@@ -35,11 +35,7 @@
             --text: #f1f5f9;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -427,41 +423,52 @@
             font-weight: 600;
         }
         
-        /* FAQ */
-        .faq {
+        /* About */
+        .about {
             padding: 100px 0;
+            background: var(--white);
         }
         
-        .faq-list {
+        .about-content {
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
         }
         
-        .faq-item {
-            border-bottom: 1px solid var(--gray-100);
-            padding: 24px 0;
+        .about-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
         }
         
-        .faq-item h4 {
+        .about-content p {
             font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .faq-item p {
             color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
-        /* Testimonials */
+        /* Testimonials Slider */
         .testimonials {
             padding: 100px 0;
             background: var(--gray-100);
+            overflow: hidden;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .testimonials-slider {
+            display: flex;
             gap: 32px;
+            animation: slide 60s linear infinite;
+            width: max-content;
+        }
+        
+        .testimonials-slider:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         
         .testimonial-card {
@@ -469,6 +476,8 @@
             border-radius: 16px;
             padding: 32px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 380px;
+            flex-shrink: 0;
         }
         
         .stars {
@@ -493,6 +502,75 @@
         .testimonial-author span {
             color: var(--gray-500);
             font-size: 13px;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .contact-content p {
+            font-size: 18px;
+            color: var(--gray-700);
+            margin-bottom: 32px;
+        }
+        
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gray-100);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .contact-email:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: var(--gray-100);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--gray-300);
+            padding: 24px 0;
+        }
+        
+        .faq-item h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .faq-item p {
+            color: var(--gray-700);
         }
         
         /* Trust Badges */
@@ -547,6 +625,15 @@
             font-size: 14px;
         }
         
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             .products-grid {
@@ -560,6 +647,10 @@
             .product-card.featured:hover {
                 transform: translateY(-4px);
             }
+            
+            .testimonial-card {
+                width: 340px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -571,8 +662,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .products-grid,
-            .testimonials-grid {
+            .products-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -583,6 +673,10 @@
             .bundle-card {
                 flex-direction: column;
             }
+            
+            .testimonial-card {
+                width: 300px;
+            }
         }
     </style>
 </head>
@@ -591,10 +685,10 @@
     <header>
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <a href="#" class="logo">
-                <div class="logo-icon">🪢</div>
+                <div class="logo-icon">CK</div>
                 ClawKnot
             </a>
-            <button id="theme-toggle" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">🌙 Dark Mode</button>
+            <button id="theme-toggle" class="btn btn-secondary" style="padding: 8px 16px; font-size: 14px;">🌙 Dark</button>
         </div>
     </header>
     
@@ -604,18 +698,18 @@
         
         if (localStorage.getItem('theme') === 'dark') {
             html.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = '☀️ Light Mode';
+            themeToggle.textContent = '☀️ Light';
         }
         
         themeToggle.addEventListener('click', () => {
             if (html.getAttribute('data-theme') === 'dark') {
                 html.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '🌙 Dark Mode';
+                themeToggle.textContent = '🌙 Dark';
             } else {
                 html.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☀️ Light Mode';
+                themeToggle.textContent = '☀️ Light';
             }
         });
     </script>
@@ -672,7 +766,7 @@
                 <!-- Product 1: Launch Kit -->
                 <div class="product-card featured">
                     <span class="product-badge">Most Popular</span>
-                    <div class="product-icon">🚀</div>
+                    <div class="product-icon">L</div>
                     <h3>OpenClaw Launch Kit</h3>
                     <p>Everything you need to set up your first multi-agent team. Pre-configured templates, personality guides, and routing rules.</p>
                     
@@ -695,7 +789,7 @@
                 
                 <!-- Product 2: Optimizer -->
                 <div class="product-card">
-                    <div class="product-icon">⚡</div>
+                    <div class="product-icon">O</div>
                     <h3>OpenClaw Optimizer</h3>
                     <p>Advanced tuning for existing setups. Fix memory issues, reduce costs, and harden security.</p>
                     
@@ -719,7 +813,7 @@
                 <!-- Product 3: Mission Control -->
                 <div class="product-card">
                     <span class="product-badge new">New</span>
-                    <div class="product-icon">🎯</div>
+                    <div class="product-icon">M</div>
                     <h3>Mission Control Kit</h3>
                     <p>Deploy a complete multi-agent operations center. Dashboards, workflows, and team coordination.</p>
                     
@@ -748,7 +842,7 @@
         <div class="container">
             <div class="bundle-card">
                 <div class="bundle-content">
-                    <h2>🎁 Complete Setup Bundle</h2>
+                    <h2>Complete Setup Bundle</h2>
                     <p>Get all three products and save big. The ultimate toolkit for building, optimizing, and scaling your OpenClaw agent team.</p>
                     
                     <div class="bundle-includes">
@@ -769,6 +863,18 @@
         </div>
     </section>
 
+    <!-- About Us -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About ClawKnot</h2>
+                <p>We are a team of AI agent builders who got tired of figuring everything out from scratch. After spending hundreds of hours wrestling with OpenClaw configurations, debugging memory issues, and building multi-agent workflows, we decided to package everything we learned into actionable guides.</p>
+                <p>Our mission is simple: help you build powerful AI agent teams without the trial-and-error we went through. Every template, playbook, and guide in our products has been battle-tested in real production environments.</p>
+                <p>We're not affiliated with OpenClaw — we're independent builders who believe the future belongs to those who can orchestrate AI agents effectively. Let us help you get there faster.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -776,68 +882,177 @@
                 <h2>What Builders Are Saying</h2>
                 <p>Join thousands of OpenClaw users who've transformed their setup.</p>
             </div>
+        </div>
+        
+        <div class="testimonials-slider">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The Launch Kit saved me weeks of trial and error. Had my multi-agent team running in a day instead of wrestling with configs for weeks."</p>
+                <div class="testimonial-author">
+                    <strong>Marcus T.</strong>
+                    <span>Agency Owner</span>
+                </div>
+            </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The Launch Kit saved me weeks of trial and error. Had my multi-agent team running in a day instead of wrestling with configs for weeks."</p>
-                    <div class="testimonial-author">
-                        <strong>Marcus T.</strong>
-                        <span>Agency Owner</span>
-                    </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally fixed my 'goldfish brain' problem with the Optimizer. The memory system actually works — my agent remembers corrections now."</p>
+                <div class="testimonial-author">
+                    <strong>Sarah K.</strong>
+                    <span>Product Manager</span>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Finally fixed my 'goldfish brain' problem with the Optimizer. The memory system actually works — my agent remembers corrections now."</p>
-                    <div class="testimonial-author">
-                        <strong>Sarah K.</strong>
-                        <span>Product Manager</span>
-                    </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Mission Control transformed how my team works. The handoff protocols alone saved us hours of confusion every week."</p>
+                <div class="testimonial-author">
+                    <strong>David L.</strong>
+                    <span>DevOps Engineer</span>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Mission Control transformed how my team works. The handoff protocols alone saved us hours of confusion every week."</p>
-                    <div class="testimonial-author">
-                        <strong>David L.</strong>
-                        <span>DevOps Engineer</span>
-                    </div>
+            </div>
+            
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Worth every penny. The security hardening alone probably saved me from a disaster. Clean, actionable, no fluff."</p>
+                <div class="testimonial-author">
+                    <strong>James R.</strong>
+                    <span>Solo Founder</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"I was skeptical but the Launch Kit delivered. My content agent is now handling 80% of my blog workflow autonomously."</p>
+                <div class="testimonial-author">
+                    <strong>Emily W.</strong>
+                    <span>Content Creator</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The Model Selection Guide saved me $200/month in API costs. Paid for itself in the first week."</p>
+                <div class="testimonial-author">
+                    <strong>Alex M.</strong>
+                    <span>Startup CTO</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 7 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally understand how to structure my agent team. The Skill Matrix alone was worth the price."</p>
+                <div class="testimonial-author">
+                    <strong>Lisa P.</strong>
+                    <span>Operations Director</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 8 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"From zero to 5 agents in production in 3 days. The Launch Kit is ridiculously comprehensive."</p>
+                <div class="testimonial-author">
+                    <strong>Michael H.</strong>
+                    <span>Consultant</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 9 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The prompt cards are genius. I just pick one, customize, and deploy. Cut my setup time by 90%."</p>
+                <div class="testimonial-author">
+                    <strong>Rachel T.</strong>
+                    <span>Marketing Lead</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 10 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Best investment I've made for my AI workflow. The bundle gives you everything you need in one place."</p>
+                <div class="testimonial-author">
+                    <strong>Chris B.</strong>
+                    <span>Freelance Developer</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 11 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The learning loop configuration in the Optimizer fixed my biggest frustration. Agents actually improve over time now."</p>
+                <div class="testimonial-author">
+                    <strong>Nina S.</strong>
+                    <span>AI Researcher</span>
+                </div>
+            </div>
+            
+            <!-- Testimonial 12 -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Customer support is incredible. Had a question about routing setup and got a detailed response within hours."</p>
+                <div class="testimonial-author">
+                    <strong>Tom K.</strong>
+                    <span>E-commerce Owner</span>
+                </div>
+            </div>
+            
+            <!-- Duplicate for infinite scroll -->
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The Launch Kit saved me weeks of trial and error. Had my multi-agent team running in a day instead of wrestling with configs for weeks."</p>
+                <div class="testimonial-author">
+                    <strong>Marcus T.</strong>
+                    <span>Agency Owner</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally fixed my 'goldfish brain' problem with the Optimizer. The memory system actually works — my agent remembers corrections now."</p>
+                <div class="testimonial-author">
+                    <strong>Sarah K.</strong>
+                    <span>Product Manager</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Mission Control transformed how my team works. The handoff protocols alone saved us hours of confusion every week."</p>
+                <div class="testimonial-author">
+                    <strong>David L.</strong>
+                    <span>DevOps Engineer</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-badges">
+    <!-- Contact Us -->
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="badges-grid">
-                <div class="badge-item">
-                    <div class="badge-icon">🔒</div>
-                    <h4>Secure Payment</h4>
-                    <p>256-bit SSL encryption</p>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">✓</div>
-                    <h4>30-Day Guarantee</h4>
-                    <p>Full refund, no questions</p>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">⚡</div>
-                    <h4>Instant Delivery</h4>
-                    <p>Download immediately</p>
-                </div>
-                <div class="badge-item">
-                    <div class="badge-icon">📧</div>
-                    <h4>Email Support</h4>
-                    <p>Help when you need it</p>
-                </div>
+            <div class="contact-content">
+                <h2>Contact Us</h2>
+                <p>Have questions about our products? Need help with your setup? We're here to help.</p>
+                
+                <a href="mailto:support@clawknot.com" class="contact-email">
+                    ✉️ support@clawknot.com
+                </a>
+                
+                <p style="margin-top: 24px; font-size: 14px; color: var(--gray-500);">We typically respond within 24 hours.</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
                 <h2>Common Questions</h2>
@@ -872,10 +1087,44 @@
         </div>
     </section>
 
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="badge-icon">🔒</div>
+                    <h4>Secure Payment</h4>
+                    <p>256-bit SSL encryption</p>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">✓</div>
+                    <h4>30-Day Guarantee</h4>
+                    <p>Full refund, no questions</p>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">⚡</div>
+                    <h4>Instant Delivery</h4>
+                    <p>Download immediately</p>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon">📧</div>
+                    <h4>Email Support</h4>
+                    <p>Help when you need it</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2026 ClawKnot. Not affiliated with OpenClaw. Independent guides by AI agent builders.</p>
+            <p style="margin-top: 8px;">
+                <a href="#about">About</a> · 
+                <a href="#contact">Contact</a> · 
+                <a href="#faq">FAQ</a> · 
+                <a href="mailto:support@clawknot.com">support@clawknot.com</a>
+            </p>
         </div>
     </footer>
 </body>

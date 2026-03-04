@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | ClawKnot - OpenClaw Guides & Tutorials</title>
+    <meta name="description" content="Learn how to build AI agent teams with OpenClaw. Guides, tutorials, and best practices for multi-agent workflows.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Blog Grid */
+        .blog-section {
+            padding: 60px 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .blog-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+        
+        .blog-content {
+            padding: 24px;
+        }
+        
+        .blog-tag {
+            display: inline-block;
+            background: var(--gray-100);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 12px;
+        }
+        
+        .blog-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .blog-card p {
+            color: var(--gray-700);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--gray-100);
+            text-align: center;
+            color: var(--gray-500);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">
+                    <div class="logo-icon">CK</div>
+                    ClawKnot
+                </a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/free-templates">Free Templates</a>
+                    <a href="https://clawknotjarvis.gumroad.com/">Products</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>ClawKnot Blog</h1>
+            <p>Guides, tutorials, and best practices for building AI agent teams with OpenClaw.</p>
+        </div>
+    </section>
+    
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                
+                <a href="/blog/design-phone-case-guide" class="blog-card">
+                    <div class="blog-image">📱</div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Guide</span>
+                        <h2>How to Design Your Own Phone Case: Complete Guide 2026</h2>
+                        <p>Learn how to design your own custom phone case in Malaysia. Step-by-step guide with material comparisons, design tips, and printing options.</p>
+                        
+                        <div class="blog-meta">
+                            <span>March 4, 2026</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/free-templates" class="blog-card">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Free Resource</span>
+                        <h2>5 Free OpenClaw Agent Templates</h2>
+                        <p>Get started with 5 ready-to-use agent templates. Content Creator, Research Assistant, Email Manager, Data Analyst, and Social Media Manager.</p>
+                        
+                        <div class="blog-meta">
+                            <span>Free Download</span>
+                            <span>Instant Access</span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 ClawKnot. Not affiliated with OpenClaw. Independent guides by AI agent builders.</p>
+        </div>
+    </footer>
+</body>
+</html>

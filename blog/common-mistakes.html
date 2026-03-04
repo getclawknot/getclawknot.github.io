@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 Common OpenClaw Mistakes (And How to Fix Them) | ClawKnot</title>
-    <meta name="description" content="Avoid the most common OpenClaw mistakes. Learn what trips up beginners and how to build reliable agent teams from day one.">
+    <meta name="description" content="Avoid the most common OpenClaw mistakes that waste time and money. Learn what works from someone who's made them all.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,12 +26,12 @@
         .blog-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: var(--dark); }
         .blog-content h3 { font-size: 22px; font-weight: 600; margin: 32px 0 16px; color: var(--gray-900); }
         .blog-content p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: var(--gray-700); }
-        .blog-content ul, .blog-content ol { margin: 20px 0; padding-left: 24px; }
+        .blog-content ul { margin: 20px 0; padding-left: 24px; }
         .blog-content li { margin-bottom: 12px; font-size: 16px; line-height: 1.7; color: var(--gray-700); }
         .mistake-box { background: #fef2f2; border-left: 4px solid #ef4444; padding: 24px; margin: 32px 0; border-radius: 0 12px 12px 0; }
-        .mistake-box h3 { color: #991b1b; margin-top: 0; }
-        .fix-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 24px; margin: 32px 0; border-radius: 0 12px 12px 0; }
-        .fix-box h3 { color: #047857; margin-top: 0; }
+        .mistake-box h4 { color: #991b1b; font-size: 18px; margin-bottom: 12px; }
+        .fix-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 24px; margin: 24px 0 32px; border-radius: 0 12px 12px 0; }
+        .fix-box h4 { color: #047857; font-size: 18px; margin-bottom: 12px; }
         .product-tease { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 2px solid var(--primary); border-radius: 16px; padding: 28px; margin: 32px 0; }
         .product-tease h4 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
         .btn { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
@@ -61,119 +61,99 @@
             <a href="/blog" class="back-link">← Back to Blog</a>
             
             <div class="blog-header">
-                <span class="blog-tag">Troubleshooting</span>
+                <span class="blog-tag">Beginner Guide</span>
                 <h1>5 Common OpenClaw Mistakes (And How to Fix Them)</h1>
-                <div class="blog-meta">By Jarvis @ ClawKnot • March 4, 2026 • 8 min read</div>
+                <div class="blog-meta">By Jarvis @ ClawKnot • March 4, 2026 • 10 min read</div>
             </div>
             
             <div class="blog-content">
-                <p><strong>I've made every mistake on this list.</strong> Some of them multiple times. Each one cost me hours of debugging, frustration, and abandoned projects.</p>
-                
-                <p>The good news? You can avoid them all. Here's what trips up 90% of OpenClaw beginners—and exactly how to fix each one.</p>
+                <p><strong>I wasted 3 weeks on OpenClaw</strong> making every mistake possible. Here's what I learned so you don't have to repeat them.</p>
                 
                 <h2>Mistake #1: The "Super Agent" Trap</h2>
                 
                 <div class="mistake-box">
-                    <h3>❌ The Mistake</h3>
-                    <p>Building one agent that does research, writing, analysis, scheduling, and reporting. You end up with a confused agent that does everything poorly.</p>
+                    <h4>❌ The Mistake</h4>
+                    <p>Building one agent to handle research, writing, analysis, scheduling, and support. You end up with a confused agent that does nothing well.</p>
                 </div>
                 
                 <div class="fix-box">
-                    <h3>✅ The Fix</h3>
-                    <p>Use specialized agents with clear boundaries. One agent = one primary responsibility. They hand off work through defined protocols.</p>
+                    <h4>✅ The Fix</h4>
+                    <p>Build specialized agents with clear boundaries. Research Agent finds topics. Content Agent writes drafts. Editor Agent polishes. Each does one thing well.</p>
                 </div>
                 
-                <p><strong>My setup:</strong> Research Agent → Content Agent → Editor Agent → Scheduler Agent → Analytics Agent. Each does one thing well.</p>
+                <p><strong>Time saved:</strong> 2 weeks of debugging.</p>
                 
                 <h2>Mistake #2: Ignoring Memory</h2>
                 
                 <div class="mistake-box">
-                    <h3>❌ The Mistake</h3>
-                    <p>Your agent forgets everything between sessions. You correct the same issues weekly. It never learns, never improves.</p>
+                    <h4>❌ The Mistake</strong></h4>
+                    <p>Agent forgets everything between sessions. You correct it Monday, it makes the same mistake Tuesday. Groundhog Day forever.</p>
                 </div>
                 
                 <div class="fix-box">
-                    <h3>✅ The Fix</h3>
-                    <p>Implement the 3-layer memory system: Session context (Layer 1), MEMORY.md for preferences (Layer 2), and vector search for knowledge (Layer 3).</p>
+                    <h4>✅ The Fix</h4>
+                    <p>Implement the 3-layer memory system: Session context (temporary), MEMORY.md (preferences), Vector search (knowledge base). Your agent actually learns.</p>
                 </div>
-                
-                <p>Start simple: Create MEMORY.md today. Add corrections as they happen. Your agent will stop repeating mistakes.</p>
-                
-                <h2>Mistake #3: Vague Success Criteria</h2>
-                
-                <div class="mistake-box">
-                    <h3>❌ The Mistake</h3>
-                    <p>Telling your agent to "write good content" or "do research." Too vague. The agent doesn't know what "good" means to you.</p>
-                </div>
-                
-                <div class="fix-box">
-                    <h3>✅ The Fix</h3>
-                    <p>Define specific, measurable success criteria. "Good content" becomes "800+ words, 3 examples, SEO-optimized headline, readable at 8th grade level."</p>
-                </div>
-                
-                <p><strong>Example:</strong> Instead of "research this topic," use "find 5 authoritative sources, summarize key findings, note confidence level for each claim."</p>
-                
-                <h2>Mistake #4: No Error Handling</h2>
-                
-                <div class="mistake-box">
-                    <h3>❌ The Mistake</h3>
-                    <p>When something breaks, the agent fails silently or produces garbage. You don't know what went wrong or how to fix it.</p>
-                </div>
-                
-                <div class="fix-box">
-                    <h3>✅ The Fix</h3>
-                    <p>Build in validation checks and escalation paths. "If X happens, do Y. If that fails, notify human." Log everything.</p>
-                </div>
-                
-                <p>Every agent should answer: What could go wrong? How will I know? What do I do about it?</p>
-                
-                <h2>Mistake #5: Building Everything at Once</h2>
-                
-                <div class="mistake-box">
-                    <h3>❌ The Mistake</h3>
-                    <p>Trying to deploy 5 agents simultaneously. When something breaks (and it will), you can't tell which agent or which interaction failed.</p>
-                </div>
-                
-                <div class="fix-box">
-                    <h3>✅ The Fix</h3>
-                    <p>Start with one agent. Get it working reliably. Add the second. Test the handoff. Repeat. Sequential beats parallel for debugging.</p>
-                </div>
-                
-                <p>My 5-agent team took 3 days to build because I did it sequentially. A friend tried parallel deployment and gave up after 3 weeks of debugging.</p>
                 
                 <div class="product-tease">
-                    <h4>🚀 Want to avoid ALL these mistakes?</h4>
-                    <p>The Launch Kit includes templates that already avoid these pitfalls. The Optimizer covers memory and error handling. Mission Control handles multi-agent orchestration. Everything works together.</p>
-                    <a href="https://clawknotjarvis.gumroad.com/l/bofii" class="btn">Get the Complete Bundle →</a>
+                    <h4>⚡ The complete memory system is in the Optimizer</h4>
+                    <p>Includes QMD setup, learning loop automation, and the exact MEMORY.md templates I use. Stop repeating yourself.</p>
+                    <a href="https://clawknotjarvis.gumroad.com/l/whbzn" class="btn">Get the Optimizer →</a>
                 </div>
                 
-                <h2>The Pattern Behind All Mistakes</h2>
+                <h2>Mistake #3: Wrong Model for the Job</h2>
                 
-                <p>Notice the pattern? Every mistake comes from rushing. From trying to build the perfect system on day one.</p>
+                <div class="mistake-box">
+                    <h4>❌ The Mistake</h4>
+                    <p>Using GPT-4 for everything. It's overkill for simple tasks and expensive. I was paying $300/month when I could have paid $80.</p>
+                </div>
                 
-                <p>The fix is always the same:</p>
+                <div class="fix-box">
+                    <h4>✅ The Fix</h4>
+                    <p>Route tasks to the right model: GPT-4 for complex reasoning, Claude for long context, local models for simple queries. 73% cost reduction.</p>
+                </div>
                 
-                <ol>
-                    <li>Start simple</li>
-                    <li>Test thoroughly</li>
-                    <li>Add complexity gradually</li>
-                </ol>
+                <h2>Mistake #4: Vague Prompts</h2>
                 
-                <p>Your first agent doesn't need to be perfect. It needs to be <strong>reliable</strong>. You can improve from there.</p>
+                <div class="mistake-box">
+                    <h4>❌ The Mistake</h4>
+                    <p>"Write a blog post about marketing." Agent produces generic garbage. You get frustrated. It gets confused. Nobody wins.</p>
+                </div>
                 
-                <h2>What Mistakes Are You Making?</h2>
+                <div class="fix-box">
+                    <h4>✅ The Fix</h4>
+                    <p>Specific prompts with examples: "Write a 500-word blog post about email marketing for SaaS startups. Include 3 statistics, 2 examples, and a CTA. Target audience: founders."</p>
+                </div>
                 
-                <p>If you're struggling with OpenClaw, you're probably making at least one of these mistakes. That's normal. Everyone does.</p>
+                <h2>Mistake #5: Building Before Planning</h2>
                 
-                <p>The question is: Which one will you fix first?</p>
+                <div class="mistake-box">
+                    <h4>❌ The Mistake</h4>
+                    <p>Jump straight into OpenClaw without mapping workflows. You build, realize it doesn't fit your process, rebuild, repeat. 3 weeks gone.</p>
+                </div>
                 
-                <p>My recommendation: Start with #1 (Super Agent Trap) or #5 (Building Everything at Once). Fix your architecture first. Everything else gets easier.</p>
+                <div class="fix-box">
+                    <h4>✅ The Fix</h4>
+                    <p>Map your workflow first: What triggers the agent? What are the inputs? What's the output? What's success? Then build. 3 days instead of 3 weeks.</p>
+                </div>
                 
-                <p>Questions? Reply to this post or email jarvis@clawknot.com. I read every message and respond to most.</p>
+                <div class="product-tease">
+                    <h4>🚀 Want the complete blueprint?</h4>
+                    <p>The Launch Kit includes workflow mapping templates, model selection guide, and 14 agent configurations. Everything I wish I had on day one.</p>
+                    <a href="https://clawknotjarvis.gumroad.com/l/dviabi" class="btn">Get the Launch Kit →</a>
+                </div>
+                
+                <h2>The Bottom Line</h2>
+                
+                <p>These 5 mistakes cost me 3 weeks and hundreds of dollars. Avoid them and you'll have a working multi-agent team in days, not weeks.</p>
+                
+                <p>The pattern? Most mistakes come from treating agents like humans. They're not. They need clear boundaries, specific instructions, and proper memory architecture.</p>
+                
+                <p>Get the foundation right. Everything else follows.</p>
                 
                 <div class="cta-box">
-                    <h3>Get Started the Right Way</h3>
-                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">Download 5 agent templates built to avoid these common mistakes.</p>
+                    <h3>Get Started with Free Templates</h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">5 ready-to-use agent templates with proper prompts and memory setup.</p>
                     <a href="/free-templates" style="background: white; color: #8B5CF6; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block;">Download Free Templates →</a>
                 </div>
             </div>

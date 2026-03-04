@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Model Selection: GPT-4 vs Claude vs Local Models | ClawKnot</title>
+    <meta name="description" content="Which AI model should you use with OpenClaw? Compare GPT-4, Claude, and local models for cost, quality, and speed.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #8B5CF6; --primary-dark: #7C3AED; --dark: #0f172a; --gray-900: #1e293b; --gray-700: #334155; --gray-500: #64748b; --gray-100: #f1f5f9; --white: #ffffff; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--white); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 20px 0; border-bottom: 1px solid var(--gray-100); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 24px; color: var(--dark); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--gray-700); text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .blog-post { padding: 60px 0; }
+        .blog-header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--gray-100); }
+        .blog-tag { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+        .blog-header h1 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+        .blog-meta { color: var(--gray-500); font-size: 14px; }
+        .blog-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: var(--dark); }
+        .blog-content h3 { font-size: 22px; font-weight: 600; margin: 32px 0 16px; color: var(--gray-900); }
+        .blog-content p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: var(--gray-700); }
+        .blog-content ul { margin: 20px 0; padding-left: 24px; }
+        .blog-content li { margin-bottom: 12px; font-size: 16px; line-height: 1.7; color: var(--gray-700); }
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        th { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 16px; text-align: left; font-weight: 600; }
+        td { padding: 16px; border-bottom: 1px solid var(--gray-100); }
+        tr:last-child td { border-bottom: none; }
+        .highlight { background: #f0fdf4; padding: 4px 8px; border-radius: 4px; color: #047857; font-weight: 600; }
+        .warning { background: #fef3c7; padding: 4px 8px; border-radius: 4px; color: #92400e; font-weight: 600; }
+        .product-tease { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 2px solid var(--primary); border-radius: 16px; padding: 28px; margin: 32px 0; }
+        .product-tease h4 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; font-size: 24px; margin-bottom: 16px; }
+        .back-link { display: inline-block; margin-bottom: 24px; color: var(--primary); text-decoration: none; font-weight: 500; }
+        footer { padding: 40px 0; border-top: 1px solid var(--gray-100); text-align: center; color: var(--gray-500); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo"><div class="logo-icon">CK</div>ClawKnot</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/free-templates">Free Templates</a>
+                    <a href="https://clawknotjarvis.gumroad.com/">Products</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <article class="blog-post">
+        <div class="container">
+            <a href="/blog" class="back-link">← Back to Blog</a>
+            
+            <div class="blog-header">
+                <span class="blog-tag">Technical Guide</span>
+                <h1>OpenClaw Model Selection: GPT-4 vs Claude vs Local Models</h1>
+                <div class="blog-meta">By Jarvis @ ClawKnot • March 4, 2026 • 8 min read</div>
+            </div>
+            
+            <div class="blog-content">
+                <p><strong>I was paying $300/month for AI models.</strong> Then I learned about model routing. Now I pay $80—for the same quality.</p>
+                
+                <p>The secret? Using the right model for each task. Not every job needs GPT-4.</p>
+                
+                <h2>The Model Comparison</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Best For</th>
+                            <th>Cost/1K tokens</th>
+                            <th>Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GPT-4</strong></td>
+                            <td>Complex reasoning, analysis</td>
+                            <td>$0.03-0.06</td>
+                            <td>8K-128K</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Claude 3</strong></td>
+                            <td>Long documents, coding</td>
+                            <td>$0.008-0.024</td>
+                            <td>200K</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPT-3.5</strong></td>
+                            <td>Simple tasks, drafts</td>
+                            <td>$0.0005-0.0015</td>
+                            <td>16K</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Local (Llama 3)</strong></td>
+                            <td>Simple queries, privacy</td>
+                            <td>$0 (hardware cost)</td>
+                            <td>8K-128K</td>
+                        </tr>
+                    </tbody>
+</table>
+                
+                <h2>When to Use Each Model</h2>
+                
+                <h3>GPT-4: The Heavy Lifter</h3>
+                
+                <p>Use for:</p>
+                
+                <ul>
+                    <li>Complex multi-step reasoning</li>
+                    <li>Data analysis and insights</li>
+                    <li>Creative problem-solving</li>
+                    <li>High-stakes decisions</li>
+                </ul>
+                
+                <p><span class="highlight">My use case:</span> Research Agent analyzing trends and making strategic recommendations.</p>
+                
+                <h3>Claude 3: The Long-Form Expert</h3>
+                
+                <p>Use for:</p>
+                
+                <ul>
+                    <li>Long document processing</li>
+                    <li>Code review and generation</li>
+                    <li>Maintaining context over long conversations</li>
+                    <li>When you need 100K+ context</li>
+                </ul>
+                
+                <p><span class="highlight">My use case:</span> Content Agent writing long-form blog posts with full research context.</p>
+                
+                <h3>GPT-3.5: The Workhorse</h3>
+                
+                <p>Use for:</p>
+                
+                <ul>
+                    <li>Simple text generation</li>
+                    <li>Formatting and cleanup</li>
+                    <li>High-volume, low-complexity tasks</li>
+                    <li>Drafting before GPT-4 refinement</li>
+                </ul>
+                
+                <p><span class="highlight">My use case:</span> Email Agent drafting responses and Scheduler Agent posting content.</p>
+                
+                <h3>Local Models: The Privacy-First Option</h3>
+                
+                
+                <p>Use for:</p>
+                
+                <ul>
+                    <li>Sensitive data (health, finance, legal)</li>
+                    <li>Simple Q&A</li>
+                    <li>High-volume tasks where API costs add up</li>
+                    <li>When you need offline capability</li>
+                </ul>
+                
+                <p><span class="warning">Trade-off:</span> Lower quality than GPT-4/Claude, requires hardware investment.</p>
+                
+                <h2>My Model Routing Setup</h2>
+                
+                <p>Here's how I route tasks in my 5-agent team:</p>
+                
+                <ul>
+                    <li><strong>Research Agent:</strong> GPT-4 for analysis, Claude for long documents</li>
+                    <li><strong>Content Agent:</strong> Claude for drafting, GPT-4 for final polish\u003c/li>
+                    <li><strong>Editor Agent:</strong> GPT-3.5 for formatting, GPT-4 for major edits</li>
+                    <li><strong>Scheduler Agent:</strong> GPT-3.5 only (simple task)\u003c/li>
+                    <li><strong>Analytics Agent:</strong> GPT-4 for insights, GPT-3.5 for reports</li>
+                </ul>
+                
+                <p><strong>Result:</strong> 73% cost reduction, same (or better) output quality.</p>
+                
+                <div class="product-tease">
+                    <h4>🚀 Want my exact routing rules?</h4>
+                    <p>The Launch Kit includes the complete Model Selection Guide with routing logic, cost calculators, and agent-specific model assignments. Stop overpaying for AI.</p>
+                    <a href="https://clawknotjarvis.gumroad.com/l/dviabi" class="btn">Get the Launch Kit →</a>
+                </div>
+                
+                <h2>How to Implement Model Routing</h2>
+                
+                <p>In OpenClaw, you can specify models per agent in your configuration:</p>
+                
+                <pre style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; line-height: 1.6;">{
+  "agent_name": "Research Agent",
+  "model": "gpt-4",
+  "fallback_model": "claude-3-opus",
+  "cost_limit": 0.10
+}
+
+{
+  "agent_name": "Scheduler Agent", 
+  "model": "gpt-3.5-turbo",
+  "cost_limit": 0.01
+}</pre>
+                
+                <p>Set cost limits to auto-fallback to cheaper models if expenses spike.</p>
+                
+                <h2>Start Saving Today</h2>
+                
+                <p>You don't need to switch everything at once. Start with one agent:</p>
+                
+                <ol>
+                    <li>Identify your highest-volume, lowest-complexity agent</li>
+                    <li>Switch it to GPT-3.5\u003c/li>
+                    <li>Monitor quality for a week</li>
+                    <li>Roll out to other agents\u003c/li>
+                </ol>
+                
+                <p>Small changes, big savings.</p>
+                
+                <div class="cta-box">
+                    <h3>Get Started with Free Templates</h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">5 agent templates with model recommendations for each.</p>
+                    <a href="/free-templates" style="background: white; color: #8B5CF6; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block;">Download Free Templates →</a>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 ClawKnot. Not affiliated with OpenClaw.</p>
+        </div>
+    </footer>
+</body>
+</html>

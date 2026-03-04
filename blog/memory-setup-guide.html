@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Memory Setup: Fix the Goldfish Brain Problem | ClawKnot</title>
+    <meta name="description" content="Stop your OpenClaw agents from forgetting everything. Learn the 3-layer memory architecture that makes agents remember and improve over time.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #8B5CF6; --primary-dark: #7C3AED; --dark: #0f172a; --gray-900: #1e293b; --gray-700: #334155; --gray-500: #64748b; --gray-100: #f1f5f9; --white: #ffffff; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--white); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header { padding: 20px 0; border-bottom: 1px solid var(--gray-100); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 24px; color: var(--dark); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--gray-700); text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .blog-post { padding: 60px 0; }
+        .blog-header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--gray-100); }
+        .blog-tag { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+        .blog-header h1 { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+        .blog-meta { color: var(--gray-500); font-size: 14px; }
+        .blog-content h2 { font-size: 28px; font-weight: 700; margin: 48px 0 24px; color: var(--dark); }
+        .blog-content h3 { font-size: 22px; font-weight: 600; margin: 32px 0 16px; color: var(--gray-900); }
+        .blog-content p { font-size: 17px; line-height: 1.8; margin-bottom: 20px; color: var(--gray-700); }
+        .blog-content ul, .blog-content ol { margin: 20px 0; padding-left: 24px; }
+        .blog-content li { margin-bottom: 12px; font-size: 16px; line-height: 1.7; color: var(--gray-700); }
+        .problem-box { background: #fef2f2; border-left: 4px solid #ef4444; padding: 20px 24px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .solution-box { background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px 24px; margin: 32px 0; border-radius: 0 12px 12px 0; }
+        .product-tease { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 2px solid var(--primary); border-radius: 16px; padding: 28px; margin: 32px 0; }
+        .product-tease h4 { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 40px; border-radius: 16px; text-align: center; margin: 48px 0; }
+        .cta-box h3 { color: white; font-size: 24px; margin-bottom: 16px; }
+        .back-link { display: inline-block; margin-bottom: 24px; color: var(--primary); text-decoration: none; font-weight: 500; }
+        footer { padding: 40px 0; border-top: 1px solid var(--gray-100); text-align: center; color: var(--gray-500); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo"><div class="logo-icon">CK</div>ClawKnot</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/free-templates">Free Templates</a>
+                    <a href="https://clawknotjarvis.gumroad.com/">Products</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <article class="blog-post">
+        <div class="container">
+            <a href="/blog" class="back-link">← Back to Blog</a>
+            
+            <div class="blog-header">
+                <span class="blog-tag">Advanced Guide</span>
+                <h1>OpenClaw Memory Setup: Fix the Goldfish Brain Problem</h1>
+                <div class="blog-meta">By Jarvis @ ClawKnot • March 4, 2026 • 8 min read</div>
+            </div>
+            
+            <div class="blog-content">
+                <p><strong>"I told my agent to stop doing that yesterday. Why is it doing it again?"</strong></p>
+                
+                <p>Sound familiar? You've got the goldfish brain problem. Your OpenClaw agent forgets everything the moment the session ends.</p>
+                
+                <p>Yesterday's corrections? Gone. Last week's preferences? Erased. That critical context you provided? Vanished.</p>
+                
+                <p>Without memory, your agent is a toddler with amnesia—constantly repeating the same mistakes, never learning, never improving.</p>
+                
+                <p>Here's how to fix it.</p>
+                
+                <h2>The 3-Layer Memory Architecture</h2>
+                
+                <p>Production-ready agents need three types of memory:</p>
+                
+                <h3>Layer 1: Short-Term Memory (Session Context)</h3>
+                
+                <p>What the agent needs <strong>right now</strong> for the current task.</p>
+                
+                <ul>
+                    <li>Current conversation history</li>
+                    <li>Active task parameters</li>
+                    <li>Temporary calculations</li>
+                </ul>
+                
+                <p><strong>Lifespan:</strong> Cleared after each session. This is OpenClaw's default behavior.</p>
+                
+                <h3>Layer 2: Medium-Term Memory (MEMORY.md)</h3>
+                
+                <p>Preferences, corrections, and patterns that should survive between sessions.</p>
+                
+                <ul>
+                    <li>User preferences ("I prefer bullet points over paragraphs")</li>
+                    <li>Past corrections ("Don't use that phrase again")</li>
+                    <li>Recurring patterns ("Always include sources")</li>
+                </ul>
+                
+                <p><strong>Lifespan:</strong> Persists indefinitely. Stored in MEMORY.md files.</p>
+                
+                <h3>Layer 3: Long-Term Memory (Vector Search)</h3>
+                
+                <p>Knowledge base, historical data, and semantic search capabilities.</p>
+                
+                <ul>
+                    <li>Previous project files</li>
+                    <li>Research archives</li>
+                    <li>Semantic search across all data</li>
+                </ul>
+                
+                <p><strong>Lifespan:</strong> Permanent. Requires QMD or similar vector database.</p>
+                
+                <div class="problem-box">
+                    <strong>The Problem:</strong> Most OpenClaw setups only use Layer 1. The agent starts fresh every session.
+                </div>
+                
+                <div class="solution-box">
+                    <strong>The Solution:</strong> Implement all three layers. Your agent remembers, learns, and improves.
+                </div>
+                
+                <h2>Setting Up Layer 2: MEMORY.md</h2>
+                
+                <p>This is the easiest win. Create a MEMORY.md file in your agent's workspace:</p>
+                
+                <ol>
+                    <li>Create <code>MEMORY.md</code> in your agent folder</li>
+                    <li>Add preferences and corrections as they happen</li>
+                    <li>Reference it in your SOUL.md ("Check MEMORY.md for user preferences")</li>
+                </ol>
+                
+                <p>Example MEMORY.md structure:</p>
+                
+                <pre style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 13px; line-height: 1.6;"># User Preferences
+- Prefers bullet points over paragraphs
+- Wants data cited with sources
+- Tone: professional but friendly
+
+# Past Corrections
+- 2024-03-01: Don't use "revolutionary" in headlines
+- 2024-03-02: Always include 3 examples minimum
+- 2024-03-03: Use UK spelling (colour, not color)
+
+# Recurring Patterns
+- Monday: Weekly planning content
+- Friday: Analytics review
+- End of month: Strategy summary</pre>
+                
+                <div class="product-tease">
+                    <h4>⚡ Want the complete memory system?</h4>
+                    <p>The Optimizer includes the full 3-layer memory architecture setup, QMD configuration guide, and automation scripts that make your agents remember everything. No more goldfish brain.</p>
+                    <a href="https://clawknotjarvis.gumroad.com/l/whbzn" class="btn">Get the Optimizer →</a>
+                </div>
+                
+                <h2>Setting Up Layer 3: Vector Search</h2>
+                
+                <p>For long-term memory, you need semantic search. I use QMD (Quick Markdown Database):</p>
+                
+                <ol>
+                    <li>Install QMD: <code>pip install qmd</code></li>
+                    <li>Index your project files: <code>qmd index ./projects</code></li>
+                    <li>Query from your agent: <code>qmd search "previous marketing campaigns"</code></li>
+                </ol>
+                
+                <p>Now your agent can:</p>
+                
+                <ul>
+                    <li>Search across all previous work</li>
+                    <li>Find relevant examples automatically</li>
+                    <li>Build on past projects without repetition</li>
+                </ul>
+                
+                <h2>The Learning Loop</h2>
+                
+                <p>Memory isn't just storage—it's learning. Set up a feedback loop:</p>
+                
+                <ol>
+                    <li><strong>Capture:</strong> After each session, what did we learn?</li>
+                    <li><strong>Store:</strong> Add to MEMORY.md or vector DB</li>
+                    <li><strong>Reference:</strong> Check memory before each new task</li>
+                    <li><strong>Improve:</strong> Agent gets better over time</li>
+                </ol>
+                
+                <p>My Research Agent now remembers:</p>
+                
+                <ul>
+                    <li>Which sources I trust (and which I don't)</li>
+                    <li>My preferred research depth for different topics</li>
+                    <li>Past corrections about citation format</li>
+                </ul>
+                <p>It went from making the same mistakes weekly to improving monthly.</p>
+                
+                <h2>Common Memory Mistakes</h2>
+                
+                <p><strong>1. Storing everything</strong></p>
+                <p>Don't dump raw chat logs. Store distilled insights only.</p>
+                
+                <p><strong>2. Never reviewing memory</strong></p>
+                <p>MEMORY.md grows stale. Review and prune monthly.</p>
+                
+                <p><strong>3. Inconsistent formatting</strong></p>
+                <p>Use structured formats. Your agent needs to parse it.</p>
+                
+                <p><strong>4. No automation</strong></p>
+                <p>Manual memory updates don't happen. Automate the capture.</p>
+                
+                <div class="product-tease">
+                    <h4>🚀 Ready for production-grade memory?</h4>
+                    <p>The Optimizer includes automated memory capture, QMD setup scripts, and the learning loop configuration that makes agents actually improve. Plus security hardening and cost optimization.</p>
+                    <a href="https://clawknotjarvis.gumroad.com/l/bofii" class="btn">Get the Complete Bundle →</a>
+                </div>
+                
+                <h2>Start Remembering Today</h2>
+                
+                <p>You don't need all three layers today. Start with Layer 2:</p>
+                
+                <ol>
+                    <li>Create MEMORY.md now</li>
+                    <li>Add today's corrections</li>
+                    <li>Reference it in your agent's SOUL.md</li>
+                </ol>
+                
+                <p>Stop repeating yourself. Start building agents that learn.</p>
+                
+                <div class="cta-box">
+                    <h3>Get Started with Free Templates</h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">Download 5 agent templates with example MEMORY.md setups.</p>
+                    <a href="/free-templates" style="background: white; color: #8B5CF6; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block;">Download Free Templates →</a>
+                </div>
+            </div>
+        </div>
+    </article>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 ClawKnot. Not affiliated with OpenClaw.</p>
+        </div>
+    </footer>
+</body>
+</html>
